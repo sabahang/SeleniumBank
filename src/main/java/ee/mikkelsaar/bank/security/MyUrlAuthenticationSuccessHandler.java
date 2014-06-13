@@ -16,7 +16,7 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-public class CustomUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
+public class MyUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
     protected Log logger = LogFactory.getLog(this.getClass());
  
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
@@ -44,6 +44,7 @@ public class CustomUrlAuthenticationSuccessHandler implements AuthenticationSucc
     protected String determineTargetUrl(Authentication authentication) {
         boolean isUser = false;
         boolean isAdmin = false;
+        boolean isNewUser = false;
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
             if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
@@ -52,11 +53,16 @@ public class CustomUrlAuthenticationSuccessHandler implements AuthenticationSucc
             } else if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
                 isAdmin = true;
                 break;
+            } else if (grantedAuthority.getAuthority().equals("ROLE_NEWUSER")) {
+                isNewUser= true;
+                break;
             }
         }
  
         if (isUser) {
             return "/user";
+        } else if (isNewUser) {
+            return "/change";
         } else if (isAdmin) {
             return "/admin";
         } else {

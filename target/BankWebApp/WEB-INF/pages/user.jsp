@@ -2,30 +2,25 @@
 <%@page session="true"%>
 <html>
 <body>
-	<h1>Title : ${title}</h1>
-	<h1>Message : ${message}</h1>
- 
-	<c:url value="/j_spring_security_logout" var="logoutUrl" />
- 
-	<!-- csrt for log out-->
-	<form action="${logoutUrl}" method="post" id="logoutForm">
-	  <input type="hidden" 
-		name="${_csrf.parameterName}"
-		value="${_csrf.token}" />
-	</form>
- 
-	<script>
-		function formSubmit() {
-			document.getElementById("logoutForm").submit();
-		}
-	</script>
- 
-	<c:if test="${pageContext.request.userPrincipal.name != null}">
-		<h2>
-			Welcome : ${pageContext.request.userPrincipal.name} | <a
-				href="javascript:formSubmit()"> Logout</a>
-		</h2>
+	<h1 class="page-header">Accounts</h1>
+	<c:if test="${not empty accounts}">
+	    <table class="table table-striped">
+	        <thead>
+	        	<tr>
+	            	<th>Account number</th>
+	            	<th>Balance</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+		        <c:forEach var="a" items="${accounts}">
+		            <tr>
+		                <td># ${a.nr}</td>
+		                <td>${a.balance} EUR</td>
+		            </tr>
+		        </c:forEach>
+	        </tbody>
+	    </table>
 	</c:if>
- 
+
 </body>
 </html>

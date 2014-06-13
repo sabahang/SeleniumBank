@@ -1,51 +1,29 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" pageEncoding="UTF-8" contentType="text/html;charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@page session="true"%>
 <html>
 <head>
-<title>Login</title>
-<style>
-.error {
-	color: #a94442;
-	border-color: #ebccd1;
-}
-
-.msg {
-	color: #31708f;
-	border-color: #bce8f1;
-}
-</style>
+	<title>Login</title>
 </head>
-<body onload='document.loginForm.username.focus();'>
+<body onload="document.loginForm.username.focus();">
 
-	<h1>Login</h1>
-
-	<div id="login-box">
-
-		<c:if test="${not empty error}">
-			<div class="error">${error}</div>
-		</c:if>
-		<c:if test="${not empty msg}">
-			<div class="msg">${msg}</div>
-		</c:if>
-
-		<form name='loginForm'
-			action="<c:url value='/j_spring_security_check' />" method='POST'>
-
-			<table>
-				<tr>
-					<td>User:</td>
-					<td><input type='text' name='username'></td>
-				</tr>
-				<tr>
-					<td>Password:</td>
-					<td><input type='password' name='password' /></td>
-				</tr>
-				<tr>
-					<td colspan='2'><input name="submit" type="submit"
-						value="submit" /></td>
-				</tr>
-			</table>
-
+	<div id="login-box" class="container">
+		<form name="loginForm" class="form-login"
+			action="<c:url value="/j_spring_security_check" />" method="POST">
+			<h2>Please sign in</h2>
+			
+			<c:if test="${not empty error}">
+				<div class="alert alert-danger">${error}</div>
+			</c:if>
+			<c:if test="${not empty msg}">
+				<div class="alert alert-info">${msg}</div>
+			</c:if>
+			
+			<input type="text" class="form-control" placeholder="Username" name="username">
+			<input type="password" class="form-control" placeholder="Password" name="password" />
+			<button type="submit" class="btn btn-lg btn-primary btn-block" name="submit">Login</button>
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />
 
