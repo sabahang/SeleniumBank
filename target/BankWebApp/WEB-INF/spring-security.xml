@@ -25,7 +25,7 @@
 	</http>
 	
 	<beans:bean id="bankCustomAuthenticationSuccessHandler"
-        class="ee.mikkelsaar.bank.security.CustomUrlAuthenticationSuccessHandler" />
+        class="ee.mikkelsaar.bank.security.MyUrlAuthenticationSuccessHandler" />
 
 	<authentication-manager>
 		<authentication-provider>

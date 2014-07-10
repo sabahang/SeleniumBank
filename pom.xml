@@ -82,6 +82,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
     <artifactId>bootstrap</artifactId>
     <version>3.1.1</version>
   </dependency>
+  
+  <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>3.0.1</version>
+    <scope>provided</scope>
+  </dependency>
  </dependencies>
  
  
