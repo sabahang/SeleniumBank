@@ -24,7 +24,7 @@ public class Tests {
         String username = "Jake";
         String password = "Jake";
         LoginPage.Login(username, password);
-        assertTrue(LoginPage.CheckIfLoggedIn());
+        assertTrue(LoginPage.CheckIfLoggedIn(username));
     }
 
 //    public void Can_Logout(){

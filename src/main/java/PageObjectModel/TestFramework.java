@@ -27,23 +27,12 @@ public class TestFramework {
          */
         public static void Login(String username, String password) {
             Browser.Goto(Url);
-            Browser.Input("username","password");
+            Browser.Input(username,password);
             Browser.Submit();
         }
-        public static boolean CheckIfLoggedIn(){
-            return welcomeMsg == Browser.getTextByxpath("/html/body/header/div/p");
+        public static boolean CheckIfLoggedIn(String user){
+            System.out.print(Browser.getTextByxpath("/html/body/header/div/p"));
+            return Browser.getTextByxpath("/html/body/header/div/p").contains(welcomeMsg + " " + user);
         }
-
-//        public static boolean CheckIfAdminIsLoggedIn() {
-//
-//        }
-//
-//        public static boolean CheckIfUserIsLoggedIn() {
-//
-//        }
-//
-//        public static boolean CheckIfNewUserIsLoggedIn() {
-//
-//        }
     }
 }
