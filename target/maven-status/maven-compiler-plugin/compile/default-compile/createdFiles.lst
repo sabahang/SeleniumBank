@@ -1,9 +1,0 @@
-ee\mikkelsaar\bank\dao\JdbcUserDAO$1.class
-ee\mikkelsaar\bank\security\MyUrlAuthenticationSuccessHandler.class
-ee\mikkelsaar\bank\dao\JdbcUserDAO$AccountMapper.class
-ee\mikkelsaar\bank\controller\AppController.class
-ee\mikkelsaar\bank\dao\JdbcUserDAO.class
-ee\mikkelsaar\bank\object\Authorities.class
-ee\mikkelsaar\bank\object\Password.class
-ee\mikkelsaar\bank\object\Account.class
-ee\mikkelsaar\bank\dao\UserDAO.class
