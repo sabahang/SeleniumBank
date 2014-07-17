@@ -19,6 +19,12 @@ public class Browser {
     
     static WebDriver WebDriver = new FirefoxDriver();
 
+
+    public static WebDriver getDriver() {
+        return WebDriver;
+    }
+
+
     static void Goto(String Url) {
         WebDriver.get(Url);
     }

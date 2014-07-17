@@ -6,9 +6,10 @@
 
 package ee.sabahang.bank.tests;
 
-import PageObjectModel.TestFramework.LoginPage;
+//import PageObjectModel.TestFramework.LoginPage;
 import PageObjectModel.TestFramework;
-import org.junit.After;
+import PageObjectModel.TestFramework.*;
+
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -23,8 +24,9 @@ public class Tests {
     public void User_Can_Login(){
         String username = "Jake";
         String password = "Jake";
-        LoginPage.Login(username, password);
-        assertTrue(LoginPage.CheckIfLoggedIn(username));
+        LoginPage lp = TestFramework.getLoginPage();
+        lp.Login(username, password);
+        assertTrue(lp.CheckIfLoggedIn(username));
     }
 
 //    public void Can_Logout(){
